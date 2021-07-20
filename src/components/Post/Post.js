@@ -3,13 +3,16 @@ import { Avatar } from "@material-ui/core";
 import "./Post.css";
 import { db } from "../../firebase";
 import firebase from "firebase";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
-function Post({ postId, user, username, caption, imageUrl }) {
+function Post({ postId, likes, user, username, caption, imageUrl }) {
   // username : who worked on posts
   //  user: who is signedIn
 
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
+  const [liked, setLiked] = useState(false);
 
   useEffect(() => {
     let unsubscribe;
@@ -43,11 +46,7 @@ function Post({ postId, user, username, caption, imageUrl }) {
   return (
     <div className="post">
       <div className="post__header">
-        <Avatar
-          className="post__avatar"
-          alt="Atul"
-           src={user?.username}
-        >
+        <Avatar className="post__avatar" alt="Atul" src={user?.username}>
           {/* {user?.email[0]}{" "} */}
         </Avatar>
 
@@ -55,6 +54,21 @@ function Post({ postId, user, username, caption, imageUrl }) {
       </div>
 
       <img className="post__image" src={imageUrl} alt="" />
+      <div className="post__like">
+        {liked ? (
+          <FavoriteIcon
+            className="post__LikeColor"
+            fontSize="large"
+            onClick={(e) => setLiked(false)}
+          />
+        ) : (
+          <FavoriteBorderIcon
+            fontSize="large"
+            onClick={(e) => setLiked(true)}
+          />
+        )}
+        {/* <p>{liked ? likes + 1 : likes}</p> */}
+      </div>
 
       <h4 className="post__text">
         <strong>{username}</strong> {caption}

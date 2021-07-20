@@ -203,7 +203,7 @@ function App() {
 
       <div className="app__posts">
         <div className="app__postsLeft">
-          {posts.map(({ id, post }) => (
+          {posts.map(({ id, post, likes }) => (
             <Post
               key={id}
               postId={id}
@@ -211,6 +211,7 @@ function App() {
               username={post.username}
               caption={post.caption}
               imageUrl={post.imageUrl}
+              // likes={likes}
             />
           ))}
         </div>
@@ -231,6 +232,7 @@ function App() {
           />
         </div>
       </div>
+
       <div className="app__footer">
         {/* try-catch => optional chianning (?.) */}
 

@@ -29,6 +29,15 @@
   margin-right: 10px;
 }
 
+.post__like {
+  padding: 15px;
+  /* text-align: center; */
+ 
+
+}
+.post__LikeColor{
+  color: red;
+}
 .post__commentBox {
   display: flex;
   margin-top: 10px;
