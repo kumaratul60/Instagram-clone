@@ -1,4 +1,4 @@
-Tech stacks:  React + Redux
+Tech stacks:  ReactJs + React Router + material UI
 
 # Getting Started with Create React App
 
